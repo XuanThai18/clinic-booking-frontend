@@ -1,0 +1,146 @@
+/* src/pages/admin/process/ProcessManagement.module.css */
+
+.container {
+  padding: 20px;
+  height: calc(100vh - 80px); /* Chiều cao full màn hình trừ header */
+  background-color: #f4f5f7;
+  overflow-x: auto; /* Cho phép cuộn ngang nếu màn hình nhỏ */
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.board {
+  display: flex;
+  gap: 20px;
+  height: 90%;
+  min-width: 1200px; /* Đảm bảo các cột không bị bóp méo */
+}
+
+/* Cột trạng thái */
+.column {
+  flex: 1;
+  background-color: #ebecf0;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+}
+
+.columnHeader {
+  font-weight: 800; /* Tăng độ đậm lên mức cao nhất (hoặc bold) */
+  font-size: 1.1rem; /* Tăng kích thước chữ lên một chút */
+  color: #222;       /* Màu chữ đậm hơn */
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+  text-transform: uppercase; /* Viết hoa toàn bộ cho nổi bật */
+  letter-spacing: 0.5px;     /* Tăng khoảng cách chữ chút xíu */
+}
+
+.countBadge {
+  background-color: #fff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* Màu sắc riêng cho từng cột */
+.colPending { border-top: 4px solid #ffc107; }
+.colConfirmed { border-top: 4px solid #007bff; }
+.colCompleted { border-top: 4px solid #28a745; }
+.colCancelled { border-top: 4px solid #dc3545; }
+
+/* Danh sách thẻ trong cột */
+.cardList {
+  flex: 1;
+  overflow-y: auto; /* Cho phép cuộn dọc trong từng cột */
+  padding-right: 5px;
+}
+
+/* Thẻ Lịch Hẹn (Card) */
+.card {
+  background-color: white;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-left: 3px solid transparent;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Nội dung thẻ */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.patientName {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.doctorInfo {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.timeInfo {
+  font-size: 0.85rem;
+  background-color: #f0f2f5;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Nút hành động (Action Buttons) */
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btnApprove { background-color: #e6fffa; color: #006d5b; }
+.btnApprove:hover { background-color: #b2f5ea; }
+
+.btnComplete { background-color: #f0fff4; color: #22543d; }
+.btnComplete:hover { background-color: #c6f6d5; }
+
+.btnCancel { background-color: #fff5f5; color: #c53030; }
+.btnCancel:hover { background-color: #fed7d7; }

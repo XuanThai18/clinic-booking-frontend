@@ -1,0 +1,44 @@
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #f4f7f6;
+  padding: 20px;
+}
+
+.errorCode {
+  font-size: 6rem;
+  font-weight: 800;
+  color: #dc3545; /* Màu đỏ */
+  margin: 0;
+}
+
+.errorTitle {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.errorMessage {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.homeButton {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.homeButton:hover {
+  background-color: #0056b3;
+}

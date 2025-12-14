@@ -1,0 +1,66 @@
+/* ===== RESET CƠ BẢN ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #213547;
+  background-color: #ffffff;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== BODY KHÔNG FLEX (QUAN TRỌNG) ===== */
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ===== LINK ===== */
+a {
+  font-weight: 500;
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/* ===== BUTTON ===== */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* ===== TIÊU ĐỀ ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #faf6f6;
+}
+
+/* ===== INPUT ===== */
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* ===== DARK MODE (OPTIONAL) ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #e3e3e3;
+    background-color: #faf6f6;
+  }
+
+  a {
+    color: #8fa6ff;
+  }
+}

@@ -1,0 +1,187 @@
+/* --- CONTAINER CHÍNH --- */
+.container {
+  padding: 40px;
+  max-width: 1100px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+}
+
+/* --- HEADER --- */
+.header {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f5f5f5;
+  padding-bottom: 20px;
+}
+
+.title {
+  color: #2c3e50;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* --- THANH ĐIỀU KHIỂN (Controls) --- */
+.controls {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 30px;
+  display: flex;
+  gap: 30px;
+  align-items: flex-end;
+  flex-wrap: wrap; /* Xuống dòng trên mobile */
+}
+
+.datePicker {
+  padding: 10px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #495057;
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-width: 200px;
+}
+
+.datePicker:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* --- LƯỚI LỊCH (SLOTS GRID) --- */
+.slotsGrid {
+  display: grid;
+  /* Tự động chia cột, mỗi cột tối thiểu 160px */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+/* --- TỪNG Ô GIỜ (SLOT ITEM) --- */
+.slotItem {
+  position: relative;
+  padding: 15px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.slotItem small {
+  margin-top: 5px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* --- TRẠNG THÁI CỦA Ô --- */
+
+/* 1. Hover (Khi chưa chọn) */
+.slotItem:not(:disabled):hover {
+  border-color: #007bff;
+  color: #007bff;
+  background-color: #f0f8ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.1);
+}
+
+/* 2. Selected (Đang chọn để chuẩn bị lưu) */
+.selected {
+  background-color: #007bff !important;
+  color: white !important;
+  border-color: #007bff !important;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  transform: scale(1.02);
+}
+
+/* 3. Disabled (Đã đăng ký trước đó - Available) */
+.disabled {
+  background-color: #f1f3f5 !important;
+  color: #adb5bd !important;
+  border-color: #dee2e6 !important;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* 4. Booked (Đã có khách đặt) */
+.booked {
+  background-color: #fff3cd !important; /* Vàng nhạt */
+  color: #856404 !important; /* Vàng đậm */
+  border-color: #ffeeba !important;
+  cursor: not-allowed;
+}
+
+.booked small {
+    color: #856404;
+    font-weight: 700;
+}
+
+/* --- NÚT LƯU --- */
+.saveButton {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto; /* Căn giữa */
+  padding: 14px;
+  background-color: #28a745; /* Xanh lá */
+  color: white;
+  border: none;
+  border-radius: 50px; /* Bo tròn kiểu pill */
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.saveButton:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.saveButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .slotsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  
+  .saveButton {
+      width: 100%;
+      max-width: none;
+  }
+}

@@ -1,0 +1,141 @@
+/* src/pages/DoctorDetail.module.css */
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap; /* Cho phép xuống dòng trên mobile */
+}
+
+/* Cột bên trái: Ảnh và Nút đặt lịch */
+.leftColumn {
+  flex: 0 0 300px; /* Chiều rộng cố định 300px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatarWrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #eef2f6;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.priceTag {
+  background-color: #f8f9fa;
+  padding: 15px;
+  width: 100%;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px dashed #ccc;
+}
+
+.priceLabel {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.priceValue {
+  color: #28a745;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.bookButton {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+.bookButton:hover {
+  background-color: #0056b3;
+}
+
+/* Cột bên phải: Thông tin chi tiết */
+.rightColumn {
+  flex: 1; /* Chiếm hết phần còn lại */
+}
+
+.name {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.academicDegree {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  background-color: #e9ecef;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #007bff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f0f2f5;
+  padding-bottom: 10px;
+}
+
+.infoRow {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.infoLabel {
+  width: 150px;
+  font-weight: 600;
+  color: #555;
+}
+
+.infoValue {
+  color: #333;
+}
+
+.description {
+  line-height: 1.6;
+  color: #444;
+  white-space: pre-line; /* Để giữ nguyên các dấu xuống dòng trong mô tả */
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .leftColumn {
+    flex: 1;
+    width: 100%;
+  }
+}

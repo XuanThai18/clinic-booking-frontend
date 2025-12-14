@@ -1,0 +1,225 @@
+/* --- Container Chính --- */
+.container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  min-height: 90vh;
+}
+
+/* --- Header --- */
+.header {
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 15px;
+}
+
+.title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* --- Thanh Tìm Kiếm & Lọc (Filter Bar) --- */
+.filterBar {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Xuống dòng khi màn hình nhỏ */
+  align-items: flex-end;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Label cho ô input */
+.label {
+  font-size: 0.9rem;
+  font-weight: 700; /* In đậm tiêu đề input */
+  color: #495057;
+  margin-left: 2px;
+}
+
+/* Ô Input và Select chung */
+.input,
+.select {
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: #fff;
+  color: #333;
+  font-family: inherit;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* Width tùy chỉnh cho từng loại ô */
+.searchBox {
+  flex: 2;
+  min-width: 250px;
+}
+
+.statusBox {
+  flex: 1;
+  min-width: 180px;
+}
+
+.dateBox {
+  flex: 1;
+  min-width: 150px;
+}
+
+/* --- Bảng Dữ Liệu (Table) --- */
+.tableWrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Bo góc bảng */
+  overflow-x: auto; /* Cuộn ngang nếu bảng quá rộng */
+  border: 1px solid #eaeaea;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px; /* Đảm bảo không bị co quá nhỏ */
+}
+
+.table thead tr {
+  background-color: #f1f3f5; /* Nền header xám nhẹ */
+}
+
+.table th {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #495057;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+  padding: 16px 20px;
+  vertical-align: top; /* Căn lề trên cùng */
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa; /* Hiệu ứng hover dòng */
+}
+
+/* --- Các thành phần trong bảng --- */
+
+/* Cột Ngày Giờ */
+.dateCell {
+  font-weight: 600;
+  color: #333;
+}
+
+.timeCell {
+  font-size: 0.85rem;
+  color: #007bff;
+  font-weight: 700;
+  margin-top: 4px;
+  display: inline-block;
+  background-color: #e7f5ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Cột Bệnh Nhân */
+.patientName {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #212529;
+}
+
+.patientPhone {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+/* Cột Trạng Thái (Badge) */
+.statusBadge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Cột Kết Quả Khám */
+.resultBox {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px 12px;
+  border-left: 4px solid #adb5bd; /* Viền trái mặc định */
+}
+
+.resultBox.completed {
+  border-left-color: #198754; /* Viền xanh lá nếu đã khám xong */
+  background-color: #f0fff4;
+}
+
+.diagnosis {
+  margin: 0 0 6px 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.prescription {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* Loading & Empty State */
+.loading, .empty {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchBox, .statusBox, .dateBox {
+    width: 100%;
+  }
+}

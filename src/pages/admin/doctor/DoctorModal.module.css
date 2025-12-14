@@ -1,0 +1,141 @@
+/* DoctorModal.module.css */
+
+/* 1. Lớp phủ mờ (Nền đen phía sau) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Đen mờ 60% */
+  backdrop-filter: blur(4px); /* Hiệu ứng làm mờ nền phía sau rất sang */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* 2. Khung Modal chính */
+.modal {
+  background: #ffffff;
+  width: 90%;
+  max-width: 600px; /* Không cứng 600px để responsive tốt hơn */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Để bo góc không bị con đè lên */
+  animation: slideUp 0.3s ease-out;
+}
+
+/* 3. Phần Tiêu đề */
+.header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #eaeaea;
+  background-color: #f8f9fa; /* Màu nền nhẹ cho tiêu đề */
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* 4. Phần Nội dung Form */
+.body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Khoảng cách giữa các ô input */
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.input,
+.textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit; /* Giữ font chữ chung của web */
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #28a745; /* Màu xanh khi focus */
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+.textarea {
+  resize: vertical; /* Chỉ cho phép kéo giãn chiều dọc */
+  min-height: 100px;
+}
+
+/* 5. Phần Chân Modal (Nút bấm) */
+.footer {
+  padding: 20px 24px;
+  border-top: 1px solid #eaeaea;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* 6. Style cho các nút */
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btnCancel {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.btnCancel:hover {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.btnSave {
+  background-color: #28a745;
+  color: white;
+  box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
+}
+
+.btnSave:hover {
+  background-color: #218838;
+  transform: translateY(-1px); /* Nổi lên nhẹ khi hover */
+  box-shadow: 0 6px 8px rgba(40, 167, 69, 0.3);
+}
+
+/* Keyframes cho hiệu ứng xuất hiện */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

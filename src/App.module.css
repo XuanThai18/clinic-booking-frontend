@@ -1,0 +1,18 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Đảm bảo ứng dụng luôn cao ít nhất bằng màn hình */
+}
+
+
+.mainContent {
+  flex: 1; /* Cho phép nội dung chính co giãn */
+  width: 100%;
+  
+  /* (Tùy chọn) Thêm padding chung cho tất cả các trang */
+  /* padding: 20px; */
+  
+  /* (Tùy chọn) Nếu muốn giới hạn chiều rộng nội dung và căn giữa */
+  /* max-width: 1400px; */
+  /* margin: 0 auto; */
+}

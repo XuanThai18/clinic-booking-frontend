@@ -1,0 +1,212 @@
+/* ===== HERO FULLSCREEN + PARALLAX ===== */
+.heroContainer {
+  width: 100vw;
+  height: 100vh; /* 100% chiều cao màn hình */
+
+  /* Em phải đổi 'hero-image.jpg' thành tên file ảnh của em */
+  background-image: url('../../assets/images/hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Hiệu ứng Parallax: ảnh nền đứng yên khi cuộn */
+  background-attachment: fixed;
+
+  position: relative; /* Quan trọng cho các lớp phủ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: white;
+  overflow: hidden; /* Tránh các hiệu ứng tràn ra ngoài */
+}
+
+/* ===== LỚP PHỦ GRADIENT ===== */
+.heroContainer::before {
+  content: '';
+  position: absolute;
+  /* inset: 0; là viết tắt của top, bottom, left, right = 0 */
+  inset: 0; 
+
+  /* Lớp phủ dốc, tối hơn ở dưới */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.75)
+  );
+
+  z-index: 1; /* Nằm dưới nội dung, trên ảnh nền */
+}
+
+/* Class này sẽ được thêm bằng JavaScript khi cuộn trang */
+.topBarScrolled {
+  opacity: 0.5; /* Mờ đi khi cuộn */
+  transform: translateY(-5px);
+}
+
+
+/* ===== NỘI DUNG CHÍNH (Tiêu đề, tìm kiếm) ===== */
+.heroContent {
+  position: relative;
+  z-index: 2; /* Nằm trên lớp phủ */
+  max-width: 750px;
+  padding: 20px;
+
+  /* Hiệu ứng xuất hiện */
+  animation: fadeUp 1.2s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.heroContent h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  /* Đặt chiều cao tối thiểu để chữ không bị "nhảy" khi hiệu ứng gõ chữ chạy */
+  min-height: 100px; 
+}
+
+.heroContent p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+}
+
+/* ===== THANH TÌM KIẾM ===== */
+.searchBar {
+  display: flex;
+  background-color: white;
+  border-radius: 50px;
+  padding: 8px 10px 8px 25px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  
+  /* Hiệu ứng xuất hiện (chậm hơn content) */
+  animation: fadeUp 1.8s 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.searchBar input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  background: transparent;
+  color: #333;
+}
+
+.searchBar button {
+  border: none;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.searchBar button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.28);
+}
+
+/* ===== CÁC NÚT CTA (Call to Action) ===== */
+.ctaButtons {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  
+  /* Hiệu ứng xuất hiện (chậm nhất) */
+  animation: fadeUp 2.0s 1.0s ease-out forwards;
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Nút chính (giống Register) */
+.primaryBtn {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: white;
+}
+.primaryBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+}
+
+/* Nút phụ (giống Login) */
+.secondaryBtn {
+  background: transparent;
+  color: white;
+  border: 1.5px solid white;
+}
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+
+/* ===== ĐỊNH NGHĨA ANIMATION ===== */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Mobile (cho hầu hết điện thoại) */
+@media (max-width: 768px) {
+  .heroContainer {
+    height: 90vh;
+    background-attachment: scroll; /* Tắt Parallax trên mobile cho mượt */
+  }
+
+  .heroContent h1 {
+    font-size: 2rem;
+    min-height: 80px;
+  }
+  
+  .heroContent p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .searchBar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    max-width: 90%;
+  }
+  
+  .searchBar button {
+    width: 100%;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .primaryBtn, .secondaryBtn {
+    width: 80%;
+  }
+}

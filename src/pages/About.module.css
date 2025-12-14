@@ -1,0 +1,145 @@
+/* src/pages/About.module.css */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #333;
+}
+
+/* --- Section: Hero (Intro) --- */
+.heroSection {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Section: Mission & Vision --- */
+.missionSection {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.missionCard {
+  flex: 1;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  min-width: 300px;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardContent {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* --- Section: Why Choose Us --- */
+.whySection {
+  margin-bottom: 60px;
+}
+
+.sectionHeader {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.featureItem {
+  text-align: center;
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.featureTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* --- Section: Contact --- */
+.contactSection {
+  background-color: #007bff;
+  color: white;
+  padding: 50px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.contactTitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contactInfo {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.contactButton {
+  background-color: white;
+  color: #007bff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.contactButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .missionSection {
+    flex-direction: column;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}

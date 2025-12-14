@@ -1,0 +1,72 @@
+/* src/pages/FindDoctorPage.module.css */
+.pageContainer {
+  width: 100%;
+  max-width: 1200px; /* Giới hạn chiều rộng */
+  margin: 2rem auto; /* Căn giữa và tạo khoảng cách với Navbar */
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép xuống hàng trên mobile */
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.filterGroup {
+  flex: 1; /* Các bộ lọc tự co giãn */
+  min-width: 200px; /* Chiều rộng tối thiểu */
+}
+
+.filterGroup label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.filterInput,
+.filterSelect {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.doctorGrid {
+  display: grid;
+  /* Tự động chia cột:
+    - Tự động lấp đầy (auto-fill)
+    - Cột con có chiều rộng tối thiểu 300px
+    - Tối đa là 1fr (chiếm hết không gian còn lại)
+  */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.loading,
+.error,
+.noResults {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 2rem;
+  color: #555;
+}
+
+.error {
+  color: #d9534f; /* Màu đỏ cho lỗi */
+}

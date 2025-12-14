@@ -1,0 +1,172 @@
+/* Container chính */
+.container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f8f9fa; /* Nền xám rất nhạt */
+  min-height: 90vh;
+}
+
+/* Header: Tiêu đề và Nút Thêm Mới */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 2rem;
+  color: #333;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Nút Thêm Mới */
+.addButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: #28a745; /* Xanh lá */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.addButton:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* Bảng Dữ Liệu */
+.tableWrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Để bo góc bảng */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table thead tr {
+  background-color: #007bff; /* Xanh dương chủ đạo */
+  color: white;
+}
+
+.table th {
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f5f9; /* Hiệu ứng hover dòng */
+}
+
+.table td {
+  padding: 16px 20px;
+  color: #555;
+  vertical-align: middle;
+}
+
+/* Cột ID */
+.colId {
+  font-weight: bold;
+  color: #888;
+  width: 50px;
+}
+
+/* Cột Ảnh */
+.specialtyImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.noImage {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background-color: #eee;
+  color: #999;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+/* Cột Tên */
+.colName {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Cột Hành Động */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.editButton {
+  background-color: #ffc107; /* Vàng */
+  color: #333;
+  text-decoration: none; /* Bỏ gạch chân link */
+  display: inline-block;
+}
+
+.editButton:hover {
+  background-color: #e0a800;
+}
+
+.deleteButton {
+  background-color: #dc3545; /* Đỏ */
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #666;
+}
