@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // 1. Định nghĩa địa chỉ Backend API của em
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8080/api';
 
 // 2. Tạo một instance axios mới
 const axiosInstance = axios.create({
