@@ -11,23 +11,64 @@ const axiosInstance = axios.create({
   },
 });
 
-// 3. (RẤT QUAN TRỌNG) Thêm "người gác cổng" (Interceptor) cho request
-// Đoạn code này sẽ tự động chạy TRƯỚC MỖI request được gửi đi
+// 1. Request Interceptor: Luôn gắn Access Token vào header
 axiosInstance.interceptors.request.use(
-  (config) => {
-    // 4. Lấy token từ đâu đó (ví dụ: localStorage)
-    const token = localStorage.getItem('accessToken'); 
-    
-    // 5. Nếu có token, gắn nó vào header Authorization
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    (config) => {
+        const token = localStorage.getItem('accessToken');
+        if (token) {
+            config.headers['Authorization'] = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => Promise.reject(error)
+);
+
+// 2. Response Interceptor: Xử lý khi Token hết hạn (Lỗi 401)
+axiosInstance.interceptors.response.use(
+    (response) => response,
+    async (error) => {
+        const originalRequest = error.config;
+
+        // Nếu lỗi là 401 (Unauthorized) và chưa từng thử retry
+        if (error.response?.status === 401 && !originalRequest._retry) {
+            originalRequest._retry = true; // Đánh dấu đã thử retry để tránh vòng lặp vô tận
+
+            try {
+                // Lấy refresh token từ storage
+                const refreshToken = localStorage.getItem('refreshToken');
+                
+                if (!refreshToken) {
+                     // Không có refresh token thì bắt đăng nhập lại luôn
+                     throw new Error("No refresh token");
+                }
+
+                // Gọi API Refresh Token
+                const res = await axios.post(`${API_BASE_URL}/auth/refresh-token`, {
+                    refreshToken: refreshToken
+                });
+
+                if (res.status === 200) {
+                    const { accessToken } = res.data;
+                    
+                    // 1. Lưu token mới vào LocalStorage
+                    localStorage.setItem('accessToken', accessToken);
+
+                    // 2. Gắn token mới vào header của request bị lỗi lúc nãy
+                    originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
+
+                    // 3. Gọi lại request cũ (Retry)
+                    return axiosInstance(originalRequest);
+                }
+            } catch (refreshError) {
+                // Nếu refresh cũng lỗi (hết hạn nốt) -> Logout luôn
+                console.log("Phiên đăng nhập hết hạn, vui lòng đăng nhập lại.");
+                localStorage.clear();
+                window.location.href = '/login';
+            }
+        }
+
+        return Promise.reject(error);
     }
-    return config;
-  },
-  (error) => {
-    // Xử lý lỗi nếu có
-    return Promise.reject(error);
-  }
 );
 
 // 6. Xuất (export) instance đã được cấu hình này ra
